@@ -1,7 +1,7 @@
 const Button = ({ label, onClick }) => {
   return (
     <button
-      className="w-100 rounded-lg bg-blue-200 border-2 border-blue-300 p-2"
+      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline"
       onClick={onClick}
     >
       {label}

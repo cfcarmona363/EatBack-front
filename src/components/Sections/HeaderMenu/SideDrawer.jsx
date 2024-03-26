@@ -1,7 +1,7 @@
 import React from "react";
-import ChevronRight from "../../assets/chevronRight";
+import ChevronRight from "../../../assets/chevronRight";
 
-const SideDrawer = ({ isOpen, onClose, userName }) => {
+const SideDrawer = ({ isOpen, onClose, userName, routes }) => {
   return (
     <div
       className={`fixed inset-y-0 right-0 w-64 bg-white shadow-xl z-50 transform ${
@@ -14,12 +14,16 @@ const SideDrawer = ({ isOpen, onClose, userName }) => {
           <ChevronRight />
         </button>
       </div>
-      <div className="p-4">
-        <ul>
-          <li className="py-2">Link 1</li>
-          <li className="py-2">Link 2</li>
-          <li className="py-2">Link 3</li>
-        </ul>
+      <div className="flex flex-col p-4">
+        {routes.map((route, index) => (
+          <a
+            key={index}
+            href={route.href}
+            className="text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+          >
+            {route.name}
+          </a>
+        ))}
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ const CreateSurveySection = () => {
   };
 
   return (
-    <div className="m-10 w-5/12 mx-auto ">
+    <div className="max-w-2xl mx-auto mt-10 bg-white p-8 border rounded-2xl shadow-lg">
       <h1 className="text-2xl my-5">Create Survey</h1>
       <div className="block rounded-xl py-4 bg-white w-auto min-h-full ">
         <FormInputText

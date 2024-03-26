@@ -24,9 +24,11 @@ const FormInputWithChips = ({ title, values, onChange, fieldName }) => {
   };
 
   return (
-    <div className="flex justify-between p-4">
-      <span className="w-1/4">{title}</span>
-      <div className="w-3/4">
+    <div className="flex flex-col justify-between items-center h-full my-4">
+      <span className="text-gray-700 text-sm font-bold mb-1 text-start w-full">
+        {title}
+      </span>
+      <div className="w-full">
         <input
           className="rounded border border-gray-300 w-full p-2"
           value={newQuestion}
@@ -37,7 +39,7 @@ const FormInputWithChips = ({ title, values, onChange, fieldName }) => {
           {values?.map((item) => (
             <div
               key={item.id}
-              className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full cursor-pointer w-fit "
+              className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-7 rounded-full cursor-pointer w-fit max-w-full"
               onClick={() => clearQuestion(item.id)}
             >
               {item.value}
