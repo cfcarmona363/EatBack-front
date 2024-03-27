@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react(), splitVendorChunkPlugin()],
   build: {
     rollupOptions: {
-      external: ["react", "react-router", "react-router-dom", "react-redux"],
+      external: ["react", "react-router", "react-router-dom"],
       output: {
         globals: {
           react: "React",
