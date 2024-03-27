@@ -1,6 +1,5 @@
 import React from "react";
 import ChevronRight from "../../../assets/chevronRight";
-import { Link, NavLink } from "react-router-dom";
 
 const SideDrawer = ({ isOpen, onClose, userName, routes }) => {
   return (
@@ -17,14 +16,13 @@ const SideDrawer = ({ isOpen, onClose, userName, routes }) => {
       </div>
       <div className="flex flex-col p-4">
         {routes.map((route, index) => (
-          <Link
+          <a
             key={index}
-            as={NavLink}
-            to={route.href}
+            href={route.href}
             className="text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
           >
             {route.name}
-          </Link>
+          </a>
         ))}
       </div>
     </div>

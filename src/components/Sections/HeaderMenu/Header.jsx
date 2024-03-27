@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import SideDrawer from "./SideDrawer";
 import UserAvatar from "../../UserAvatar";
-import { Link, NavLink } from "react-router-dom";
 
 const routes = [
   {
@@ -37,14 +36,13 @@ function Header() {
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   {routes.map((route, index) => (
-                    <Link
+                    <a
                       key={index}
-                      as={NavLink}
-                      to={route.href}
+                      href={route.href}
                       className="text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
                       {route.name}
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </div>
