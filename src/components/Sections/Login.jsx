@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import Button from "../Button";
 import FormInputText from "../FormInputText";
 import { UserContext } from "../../context/Context";

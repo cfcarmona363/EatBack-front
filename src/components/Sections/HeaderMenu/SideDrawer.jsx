@@ -1,4 +1,3 @@
-import React from "react";
 import ChevronRight from "../../../assets/chevronRight";
 
 const SideDrawer = ({ isOpen, onClose, userName, routes }) => {

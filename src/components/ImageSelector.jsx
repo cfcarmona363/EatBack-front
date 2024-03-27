@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import NoImageProfile from "../assets/noImageProfile";
 
 const ImageSelector = () => {

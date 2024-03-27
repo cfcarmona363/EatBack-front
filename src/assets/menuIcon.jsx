@@ -1,5 +1,3 @@
-import React from "react";
-
 function MenuIcon({ onClick }) {
   return (
     <button onClick={onClick}>
