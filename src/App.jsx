@@ -9,14 +9,8 @@ function App() {
   const { user } = useContext(UserContext);
   return (
     <div className=" min-h-screen bg-gray-200">
-      {user ? (
-        <>
-          <Header />
-          <RouterProvider router={Router} fallbackElement={<p>Loading...</p>} />
-        </>
-      ) : (
-        <Login />
-      )}
+      <Header />
+      <RouterProvider router={Router} fallbackElement={<p>Loading...</p>} />
     </div>
   );
 }
