@@ -20,6 +20,7 @@ const CompanyProfile = () => {
       return newValue;
     });
   };
+  //test
 
   return (
     <div className="max-w-2xl mx-auto mt-10 bg-white p-8 border rounded-2xl shadow-lg">
