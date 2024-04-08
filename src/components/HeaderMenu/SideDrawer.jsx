@@ -9,19 +9,19 @@ const SideDrawer = ({ isOpen, onClose, userName, routes }) => {
     >
       <div className="flex justify-between items-center p-4 border-b">
         <h1 className="text-lg font-semibold">Welcome {userName}</h1>
-        <button onClick={onClose} className="text-gray-600 focus:outline-none">
+        <button onClick={onClose} className="w-8">
           <ChevronRight />
         </button>
       </div>
       <div className="flex flex-col p-4">
         {routes.map((route, index) => (
-          <a
+          <span
             key={index}
-            href={route.href}
+            onClick={() => router.push(`${route.href}`)}
             className="text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
           >
             {route.name}
-          </a>
+          </span>
         ))}
       </div>
     </div>

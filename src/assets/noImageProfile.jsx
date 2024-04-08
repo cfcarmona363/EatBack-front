@@ -1,4 +1,4 @@
-const NoImageProfile = () => {
+const NoImageProfile = ({ height = 300, width = 300 }) => {
   return (
     <div className="mb-4">
       <svg
@@ -6,8 +6,8 @@ const NoImageProfile = () => {
         xmlns="http://www.w3.org/2000/svg"
         xmlns-xlink="http://www.w3.org/1999/xlink"
         version="1.1"
-        width="300"
-        height="300"
+        width={height}
+        height={width}
         viewBox="0 0 256 256"
         xml-space="preserve"
       >

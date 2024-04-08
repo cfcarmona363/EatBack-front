@@ -20,11 +20,11 @@ const ImageSelector = ({ selectedImage, setSelectedImage, fieldName }) => {
           <img
             src={selectedImage}
             alt="Selected"
-            className="w-100 h-100 mx-auto rounded-full"
+            className="w-40 h-40 mx-auto rounded-full object-cover"
           />
         </div>
       ) : (
-        <NoImageProfile />
+        <NoImageProfile width={160} height={160} />
       )}
       <label
         htmlFor="fileInput"

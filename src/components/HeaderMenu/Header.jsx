@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import SideDrawer from "./SideDrawer";
 import UserAvatar from "../UserAvatar";
+import { UserContext } from "@/context/UserContext";
+import { useRouter } from "next/navigation";
 
 const routes = [
   {
@@ -19,6 +21,15 @@ const routes = [
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { user } = useContext(UserContext);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!user) {
+      router.push("login");
+    }
+  }, [user, router]);
 
   const OpenCloseDrawer = () => {
     setIsOpen((prev) => !prev);
@@ -33,26 +44,28 @@ function Header() {
               <div className="flex-shrink-0">
                 <span className="text-gray-900 text-xl font-bold">EatBack</span>
               </div>
-              <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
-                  {routes.map((route, index) => (
-                    <a
-                      key={index}
-                      href={route.href}
-                      className="text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      {route.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-              <UserAvatar
-                onClick={OpenCloseDrawer}
-                userName="Joaquin"
-                userImg={
-                  "https://staticg.sportskeeda.com/editor/2022/03/94200-16470225783956-1920.jpg"
-                }
-              />
+              {user && (
+                <>
+                  <div className="hidden md:block">
+                    <div className="ml-10 flex items-baseline space-x-4">
+                      {routes.map((route, index) => (
+                        <span
+                          key={index}
+                          onClick={() => router.push(`${route.href}`)}
+                          className="text-gray-900 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
+                        >
+                          {route.name}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <UserAvatar
+                    onClick={OpenCloseDrawer}
+                    userName={user?.companyName}
+                    userImg={user?.profileImage}
+                  />
+                </>
+              )}
             </div>
           </div>
         </nav>
@@ -61,7 +74,7 @@ function Header() {
       <SideDrawer
         isOpen={isOpen}
         onClose={OpenCloseDrawer}
-        userName={"Joaquin"}
+        userName={user?.companyName}
         routes={routes}
       />
     </header>
